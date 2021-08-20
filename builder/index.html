@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Plazbot Builder</title>
+
+    <link rel="stylesheet" href="css/dashforge.css">
+    <link rel="stylesheet" href="css/skin.charcoal.css">
+    <link rel="stylesheet" href="css/plaz-builder.css">
+
+    <!-- feather icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body class="builder-body">
+    <header class="builder-header">
+        <nav class="navbar navbar-expand navbar-light justify-content-between bg-white">
+            <div class="flex-grow-1" style="flex-basis: 0;">
+                My workspaces
+            </div>
+            <div class="flex-grow-1 text-center" style="flex-basis: 0;">
+                <div class="btn-group">
+                    <button class="btn btn-outline-primary btn-xs active">Diagrama</button>
+                    <button class="btn btn-outline-primary btn-xs">Código</button>
+                </div>
+            </div>
+            <div class="flex-grow-1 text-right" style="flex-basis: 0;">
+                <button class="btn btn-white btn-xs text-uppercase"><i data-feather="zoom-in" class="mr-1"></i>Probar</button>
+                <button class="btn btn-primary btn-xs text-uppercase"><i data-feather="send" class="mr-1"></i>Publicar</button>
+            </div>
+        </nav>
+    
+        <!-- <ul class="nav nav-line bg-light">
+            <li class="nav-item mx-0">
+                <a class="nav-link px-3 active" href="#">Active</a>
+            </li>
+            <li class="nav-item mx-0">
+                <a class="nav-link px-3" href="#">Link</a>
+            </li>
+            <li class="nav-item mx-0">
+                <a class="nav-link px-3" href="#">Link</a>
+            </li>
+        </ul> -->
+    </header>
+
+    <main class="builder-content">
+        <!-- left sidebar -->
+        <aside class="builder-content-sidebar builder-content-sidebar--left">
+            <ul class="nav nav-line nav-justified flex-shrink-0 bg-light">
+                <li class="nav-item mx-0">
+                    <a class="nav-link px-3 active" href="#">Eventos</a>
+                </li>
+                <li class="nav-item mx-0">
+                    <a class="nav-link px-3" href="#">Lista</a>
+                </li>
+            </ul>
+            <div class="builder-nice-scrollbar flex-grow-1 overflow-auto p-3">
+                <ul class="builder-tree pl-4">
+                    <li>
+                        <div class="builder-tree-item">Greeting</div>
+                        <div class="builder-tree-item">Lorem, ipsum dolor.</div>
+                        <ul>
+                            <li>
+                                <div class="builder-tree-item">Presenting compliant</div>
+                                <ul>
+                                    <li>
+                                        <div class="builder-tree-item">Further open question</div>
+                                        <div class="builder-tree-item">Pain onset</div>
+                                        <ul>
+                                            <li>
+                                                <div class="builder-tree-item">hello world</div>
+                                                <div class="builder-tree-item">hello world</div>
+                                            </li>
+                                        </ul>
+                                        <div class="builder-tree-item">Pain radiation</div>
+                                        <ul>
+                                            <li>
+                                                <div class="builder-tree-item">Pain associations</div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <div class="builder-tree-item">hello world</div>
+                        <div class="builder-tree-item active">hello world</div>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+        <!-- right sidebar -->
+        <aside class="builder-content-sidebar builder-content-sidebar--right">
+            <div class="p-3">
+                right sidebar
+            </div>
+        </aside>
+
+        <!-- main content (drop zone)-->
+        <section class="h-100 p-3">
+            <!-- <h1>Hello world</h1> -->
+        </section>
+
+        <!-- console -->
+        <section class="console">
+            <header class="console-header border-bottom">
+                <div>Consola</div>
+                <div class="console-header-actions">
+                    <button class="btn btn-light border-0 px-2 btn-xs"><i data-feather="minimize-2"></i></button>
+                    <button class="btn btn-light border-0 px-2 btn-xs"><i data-feather="maximize"></i></button>
+                </div>
+            </header>
+            <div class="console-body">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet, magnam.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- chat -->
+    <section class="builder-chat">
+        <header class="builder-chat-header">
+            <div>Chat</div>
+            <div class="builder-chat-header-actions mr-n2">
+                <button class="btn btn-light border-0 btn-xs px-2"><i data-feather="x"></i></button>
+            </div>
+        </header>
+        <main class="builder-chat-body builder-nice-scrollbar p-3">
+            <div class="builder-chat-msg sent">
+                <div class="builder-chat-msg-content">Lorem ipsum dolor sit.</div>
+            </div>
+            <div class="builder-chat-msg received">
+                <div class="builder-chat-msg-content">Lorem ipsum.</div>
+            </div>
+            <div class="builder-chat-msg sent">
+                <div class="builder-chat-msg-content">Lorem ipsum dolor sit.</div>
+            </div>
+            <div class="builder-chat-msg sent">
+                <div class="builder-chat-msg-content">Lorem ipsum dolor sit.</div>
+            </div>
+            <div class="builder-chat-msg received">
+                <div class="builder-chat-msg-content">Lorem ipsum.</div>
+            </div>
+            <div class="builder-chat-msg sent">
+                <div class="builder-chat-msg-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, placeat?</div>
+            </div>
+            <div class="builder-chat-msg received">
+                <div class="builder-chat-msg-content">Lorem ipsum.</div>
+            </div>
+            <div class="builder-chat-msg sent">
+                <div class="builder-chat-msg-content">Ok!</div>
+            </div>
+            <div class="builder-chat-msg received">
+                <div class="builder-chat-msg-content">Lorem ipsum.</div>
+            </div>
+        </main>
+        <footer class="builder-chat-footer">
+            <textarea rows="2" class="builder-chat-input builder-nice-scrollbar form-control border-0 rounded-0" placeholder="Escriba..."></textarea>
+            <button class="btn btn-light border-0 rounded-0"><i data-feather="send"></i></button>
+        </footer>
+    </section>
+
+    <script> feather.replace() </script>
+</body>
+</html>

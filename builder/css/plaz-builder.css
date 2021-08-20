@@ -1,0 +1,300 @@
+.builder-body {
+  --primary: #214f7e;
+  --secondary: #35b274;
+  --light: #f4f5f8;
+  --sidebar-width: 280px;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100vh;
+}
+
+.builder-header {
+  position: relative;
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  z-index: 20;
+}
+
+.builder-content {
+  position: relative;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  background-color: #fcfcfe;
+  background-image: radial-gradient(#d1d1dd 1px, #fcfcfe 1px);
+  background-size: 20px 20px;
+  padding: 0 var(--sidebar-width);
+  overflow: hidden;
+  z-index: 10;
+}
+
+.builder-content-sidebar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background-color: #fff;
+  width: var(--sidebar-width);
+  z-index: 10;
+}
+
+.builder-content-sidebar--left {
+  left: 0;
+  -webkit-box-shadow: 2px 0 4px rgba(0, 0, 0, 0.05);
+          box-shadow: 2px 0 4px rgba(0, 0, 0, 0.05);
+}
+
+.builder-content-sidebar--right {
+  right: 0;
+  -webkit-box-shadow: -2px 0 4px rgba(0, 0, 0, 0.05);
+          box-shadow: -2px 0 4px rgba(0, 0, 0, 0.05);
+}
+
+.console {
+  --header-height: 42px;
+  position: absolute;
+  right: var(--sidebar-width);
+  bottom: 0;
+  left: var(--sidebar-width);
+  min-height: 250px;
+  background-color: #fff;
+  -webkit-box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
+          box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
+  z-index: 5;
+}
+
+.console-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: var(--header-height);
+  background-color: var(--light);
+  padding: .5rem 1rem;
+}
+
+.console-body {
+  padding: .5rem 1rem;
+  font-size: .875rem;
+}
+
+.console.maximized {
+  height: 100%;
+}
+
+.console.minimized {
+  -webkit-transform: translateY(calc(100% - var(--header-height)));
+          transform: translateY(calc(100% - var(--header-height)));
+}
+
+.builder-chat {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: var(--sidebar-width);
+  z-index: 1020;
+  -webkit-box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+  border-top-left-radius: .5rem;
+  border-top-right-radius: .5rem;
+}
+
+.builder-chat-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: var(--primary);
+  color: #fff;
+  padding: .5rem 1rem;
+  border-top-left-radius: .5rem;
+  border-top-right-radius: .5rem;
+}
+
+.builder-chat-body {
+  min-height: 50vh;
+  max-height: 50vh;
+  background-color: #fff;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.builder-chat-msg {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.builder-chat-msg-content {
+  position: relative;
+  display: inline-block;
+  padding: .5rem .75rem;
+  max-width: 90%;
+  line-height: 1.25;
+  font-size: 13px;
+  font-weight: 400;
+  border-radius: .875rem;
+}
+
+.builder-chat-msg:not(:last-child) {
+  margin-bottom: .5rem;
+}
+
+.builder-chat-msg.sent {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.builder-chat-msg.sent .builder-chat-msg-content {
+  background-color: var(--light);
+}
+
+.builder-chat-msg.received {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.builder-chat-msg.received .builder-chat-msg-content {
+  color: #fff;
+  background-color: var(--primary);
+}
+
+.builder-chat-footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+}
+
+.builder-chat-input {
+  line-height: 1.25;
+  resize: none;
+}
+
+.builder-chat-input:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.builder-chat.minimized {
+  -webkit-transform: translateY(calc( 100% - 44px));
+          transform: translateY(calc( 100% - 44px));
+}
+
+.builder-nice-scrollbar::-webkit-scrollbar {
+  width: 3px;
+}
+
+.builder-nice-scrollbar::-webkit-scrollbar-track {
+  background: white;
+}
+
+.builder-nice-scrollbar::-webkit-scrollbar-track:hover {
+  background: var(--light);
+}
+
+.builder-nice-scrollbar::-webkit-scrollbar-thumb {
+  background: gainsboro;
+}
+
+.builder-nice-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: darkgray;
+}
+
+.builder-tree {
+  padding-left: 0;
+}
+
+.builder-tree li {
+  position: relative;
+  list-style-type: none;
+  width: 100%;
+}
+
+.builder-tree li:before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: -20px;
+  border-left: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  border-radius: 0 0 0 0px;
+  width: 20px;
+  height: 15px;
+  border-bottom-left-radius: .5rem;
+}
+
+.builder-tree li:after {
+  position: absolute;
+  content: "";
+  top: 8px;
+  left: -20px;
+  border-left: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 0px 0 0 0;
+  width: 20px;
+  height: 100%;
+  border-top-left-radius: .5rem;
+}
+
+.builder-tree li:last-child::after {
+  display: none;
+}
+
+.builder-tree ul {
+  margin: .5rem 0 .5rem 2rem;
+  padding-left: 0;
+}
+
+.builder-tree-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: var(--light);
+  padding: .5rem 1rem;
+  border-radius: .5rem;
+  font-size: .875rem;
+  line-height: 1.25;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.builder-tree-item:not(:last-child) {
+  margin-bottom: .5rem;
+}
+
+.builder-tree-item.active {
+  border: 1px solid var(--primary);
+  color: var(--primary);
+}
+
+ul.builder-tree > li:first-child::before {
+  display: none;
+}
+/*# sourceMappingURL=plaz-builder.css.map */

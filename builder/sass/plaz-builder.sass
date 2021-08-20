@@ -1,0 +1,186 @@
+.builder-body
+    --primary: #214f7e
+    --secondary: #35b274
+    --light: #f4f5f8
+    --sidebar-width: 280px
+
+    position: relative
+    display: flex
+    flex-direction: column
+    height: 100vh
+
+.builder
+    &-header
+        position: relative
+        box-shadow: 0 2px 4px rgba(black, .05)
+        z-index: 20
+    &-content
+        position: relative
+        flex-grow: 1
+        background-color: #fcfcfe;
+        background-image: radial-gradient(#d1d1dd 1px, #fcfcfe 1px);
+        background-size: 20px 20px;
+        padding: 0 var(--sidebar-width)
+        overflow: hidden
+        z-index: 10
+        &-sidebar
+            display: flex
+            flex-direction: column
+            position: absolute
+            top: 0
+            bottom: 0
+            background-color: #fff
+            width: var(--sidebar-width)
+            z-index: 10
+            &--left
+                left: 0
+                box-shadow: 2px 0 4px rgba(black, .05)
+            &--right
+                right: 0
+                box-shadow: -2px 0 4px rgba(black, .05)
+
+.console
+    --header-height: 42px
+
+    position: absolute
+    right: var(--sidebar-width)
+    bottom: 0
+    left: var(--sidebar-width)
+    min-height: 250px
+    background-color: #fff
+    box-shadow: 0 -2px 4px rgba(black, .05)
+    z-index: 5
+    &-header
+        display: flex
+        justify-content: space-between
+        align-items: center
+        height: var(--header-height)
+        background-color: var(--light)
+        padding: .5rem 1rem
+    &-body
+        padding: .5rem 1rem
+        font-size: .875rem
+    &.maximized
+        height: 100%
+    &.minimized
+        transform: translateY(calc(100% - var(--header-height)))
+
+.builder-chat
+    position: fixed
+    right: 0
+    bottom: 0
+    width: var(--sidebar-width)
+    z-index: 1020
+    box-shadow: 0 -4px 12px rgba(black, .1)
+    border-top-left-radius: .5rem
+    border-top-right-radius: .5rem
+    &-header
+        display: flex
+        justify-content: space-between
+        align-items: center
+        background-color: var(--primary)
+        color: #fff
+        padding: .5rem 1rem
+        border-top-left-radius: .5rem
+        border-top-right-radius: .5rem
+    &-body
+        min-height: 50vh
+        max-height: 50vh
+        background-color: #fff
+        overflow-x: hidden
+        overflow-y: auto
+    &-msg
+        display: flex
+        &-content
+            position: relative
+            display: inline-block
+            padding: .5rem .75rem
+            max-width: 90%
+            line-height: 1.25
+            font-size: 13px
+            font-weight: 400
+            border-radius: .875rem
+        &:not(:last-child)
+            margin-bottom: .5rem
+        &.sent
+            justify-content: flex-end
+            .builder-chat-msg-content
+                background-color: var(--light)
+        &.received
+            justify-content: flex-start
+            .builder-chat-msg-content
+                color: #fff
+                background-color: var(--primary)
+    &-footer
+        display: flex
+        align-items: stretch
+    &-input
+        line-height: 1.25
+        resize: none
+        &:focus
+            box-shadow: none
+    &.minimized
+        transform: translateY(calc( 100% - 44px ))
+
+.builder-nice-scrollbar
+    &::-webkit-scrollbar
+        width: 3px
+    &::-webkit-scrollbar-track 
+        background: white
+        &:hover
+            background: var(--light)
+    &::-webkit-scrollbar-thumb
+        background: lighten(darkgray, 20%)
+        &:hover
+            background: darkgray
+
+.builder-tree
+    padding-left: 0
+    li
+        position: relative
+        list-style-type: none
+        width: 100%
+        &:before
+            content: ""
+            position: absolute
+            top: -7px
+            left: -20px
+            border-left: 1px solid #ccc
+            border-bottom: 1px solid #ccc
+            border-radius: 0 0 0 0px
+            width: 20px
+            height: 15px
+            border-bottom-left-radius: .5rem
+        &:after
+            position: absolute
+            content: ""
+            top: 8px
+            left: -20px
+            border-left: 1px solid #ccc
+            border-top: 1px solid #ccc
+            border-radius: 0px 0 0 0
+            width: 20px
+            height: 100%
+            border-top-left-radius: .5rem
+        &:last-child::after  
+            display: none
+    ul
+        margin: .5rem 0 .5rem 2rem
+        padding-left: 0
+
+    &-item
+        display: flex
+        background-color: var(--light)
+        padding: .5rem 1rem
+        border-radius: .5rem
+        font-size: .875rem
+        line-height: 1.25
+        box-shadow: 0 1px 2px rgba(black, .15)
+        &:not(:last-child)
+            margin-bottom: .5rem
+        &.active
+            border: 1px solid var(--primary)
+            color: var(--primary)
+
+ul.builder-tree > li:first-child::before 
+    display: none
