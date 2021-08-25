@@ -25,25 +25,14 @@
                 </div>
             </div>
             <div class="flex-grow-1 text-right" style="flex-basis: 0;">
-                <button class="btn btn-white btn-xs text-uppercase"><i data-feather="zoom-in" class="mr-1"></i>Probar</button>
+                <button class="btn btn-white btn-xs text-uppercase"><i data-feather="eye" class="mr-1"></i>Probar</button>
                 <button class="btn btn-primary btn-xs text-uppercase"><i data-feather="send" class="mr-1"></i>Publicar</button>
             </div>
         </nav>
-    
-        <!-- <ul class="nav nav-line bg-light">
-            <li class="nav-item mx-0">
-                <a class="nav-link px-3 active" href="#">Active</a>
-            </li>
-            <li class="nav-item mx-0">
-                <a class="nav-link px-3" href="#">Link</a>
-            </li>
-            <li class="nav-item mx-0">
-                <a class="nav-link px-3" href="#">Link</a>
-            </li>
-        </ul> -->
     </header>
 
     <main class="builder-content">
+
         <!-- left sidebar -->
         <aside class="builder-content-sidebar builder-content-sidebar--left">
             <ul class="nav nav-line nav-justified flex-shrink-0 bg-light">
@@ -90,8 +79,14 @@
                 </ul>
             </div>
         </aside>
+
         <!-- right sidebar -->
-        <aside class="builder-content-sidebar builder-content-sidebar--right">
+        <aside id="sidebar-right" class="builder-content-sidebar builder-content-sidebar--right">
+            <div class="text-right pt-2 pr-2 mb-n4">
+                <button type="button" onclick="this.parentElement.parentElement.classList.remove('--show')" class="btn btn-white btn-xs px-2">
+                    <i data-feather="x"></i>
+                </button>
+            </div>
             <div class="p-3">
                 right sidebar
             </div>
@@ -99,30 +94,54 @@
 
         <!-- main content (drop zone)-->
         <section class="h-100 p-3">
-            <!-- <h1>Hello world</h1> -->
+            <button onclick="document.getElementById('sidebar-right').classList.toggle('--show')" type="button" class="btn btn-white">toggle</button>
         </section>
 
-        <!-- console -->
-        <section class="console">
-            <header class="console-header border-bottom">
-                <div>Consola</div>
-                <div class="console-header-actions">
-                    <button class="btn btn-light border-0 px-2 btn-xs"><i data-feather="minimize-2"></i></button>
-                    <button class="btn btn-light border-0 px-2 btn-xs"><i data-feather="maximize"></i></button>
-                </div>
-            </header>
-            <div class="console-body">
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet, magnam.</p>
-            </div>
-        </section>
     </main>
+    
+    <!-- console -->
+    <section id="console" class="console">
+        <header class="console-header border-bottom">
+            <div><i data-feather="terminal" class="wd-15 text-muted mr-2"></i>Consola</div>
+            <div class="console-header-actions">
+                <button id="console_minimize" type="button" class="btn btn-light border-0 px-2 btn-xs"><i data-feather="minimize-2"></i></button>
+                <button id="console_maximize" type="button" class="btn btn-light border-0 px-2 btn-xs"><i data-feather="maximize"></i></button>
+            </div>
+        </header>
+        <div class="console-body builder-nice-scrollbar">
+            <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet, magnam.</div>
+            <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet, magnam.</div>
+            <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet, magnam.</div>
+            <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet, magnam.</div>
+            <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet, magnam.</div>
+            <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet, magnam.</div>
+            <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet, magnam.</div>
+            <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet, magnam.</div>
+            <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet, magnam.</div>
+            <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet, magnam.</div>
+            <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet, magnam.</div>
+            <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet, magnam.</div>
+            <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet, magnam.</div>
+            <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet, magnam.</div>
+        </div>
+    </section>
 
     <!-- chat -->
-    <section class="builder-chat">
+    <section class="builder-chat minimized">
         <header class="builder-chat-header">
-            <div>Chat</div>
+            <div class="media align-items-center">
+                <div class="avatar avatar-xs mr-2">
+                    <img class="rounded-circle" src="" alt="">
+                </div>
+                <div class="media-body">
+                    Prueba
+                </div>
+            </div>
             <div class="builder-chat-header-actions mr-n2">
-                <button class="btn btn-light border-0 btn-xs px-2"><i data-feather="x"></i></button>
+                <button onclick="this.parentElement.parentElement.parentElement.classList.toggle('minimized')" type="button" class="btn text-light border-0 btn-xs px-2">
+                    <i class="builder-chat-close-icon" data-feather="x"></i>
+                    <i class="builder-chat-expand-icon" data-feather="maximize-2"></i>
+                </button>
             </div>
         </header>
         <main class="builder-chat-body builder-nice-scrollbar p-3">
@@ -161,5 +180,25 @@
     </section>
 
     <script> feather.replace() </script>
+
+    <script>
+        // console
+        let console_minimize_toggler    = document.getElementById('console_minimize'),
+            console_maximize_toggler    = document.getElementById('console_maximize'),
+            builder_console             = document.getElementById('console');
+
+        // console minimize
+        console_minimize_toggler.addEventListener('click', () => {
+            builder_console.classList.toggle('minimized');
+        })
+
+        // console maximize
+        console_maximize_toggler.addEventListener('click', () => {
+            if (builder_console.classList.contains('minimized')) {
+                builder_console.classList.remove('minimized');
+            }
+            builder_console.classList.toggle('maximized');
+        })
+    </script>
 </body>
 </html>

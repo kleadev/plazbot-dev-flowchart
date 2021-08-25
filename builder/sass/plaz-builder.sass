@@ -3,77 +3,103 @@
     --secondary: #35b274
     --light: #f4f5f8
     --sidebar-width: 280px
+    --header-height: 48px
 
     position: relative
     display: flex
     flex-direction: column
     height: 100vh
+    overflow-y: hidden
 
 .builder
     &-header
         position: relative
         box-shadow: 0 2px 4px rgba(black, .05)
-        z-index: 20
+        z-index: 50
+        > .navbar
+            height: var(--header-height)
     &-content
         position: relative
         flex-grow: 1
         background-color: #fcfcfe;
         background-image: radial-gradient(#d1d1dd 1px, #fcfcfe 1px);
         background-size: 20px 20px;
-        padding: 0 var(--sidebar-width)
+        margin: 0 0 0 var(--sidebar-width)
         overflow: hidden
-        z-index: 10
         &-sidebar
             display: flex
             flex-direction: column
-            position: absolute
-            top: 0
             bottom: 0
             background-color: #fff
-            width: var(--sidebar-width)
-            z-index: 10
+            z-index: 20
             &--left
+                position: fixed
+                top: var(--header-height)
                 left: 0
+                width: var(--sidebar-width)
                 box-shadow: 2px 0 4px rgba(black, .05)
             &--right
+                position: absolute
+                top: 0
                 right: 0
-                box-shadow: -2px 0 4px rgba(black, .05)
+                width: 50vw
+                box-shadow: -4px 0 16px rgba(black, .05)
+                transform: translateX(30%)
+                visibility: hidden
+                opacity: 0
+                transition: all .2s ease-in-out
+                &.--show
+                    transform: translateX(0)
+                    opacity: 1
+                    visibility: visible
+                    display: block
 
 .console
-    --header-height: 42px
+    --console-header-height: 42px
 
     position: absolute
-    right: var(--sidebar-width)
+    right: 0
     bottom: 0
     left: var(--sidebar-width)
-    min-height: 250px
+    display: flex
+    flex-direction: column
+    min-height: 290px
+    height: 30%
     background-color: #fff
     box-shadow: 0 -2px 4px rgba(black, .05)
-    z-index: 5
+    z-index: 10
+    transition: all .2s ease-in-out
     &-header
         display: flex
         justify-content: space-between
         align-items: center
-        height: var(--header-height)
+        height: var(--console-header-height)
         background-color: var(--light)
         padding: .5rem 1rem
     &-body
+        flex-grow: 1
+        max-height: 250px
         padding: .5rem 1rem
         font-size: .875rem
+        line-height: 1.75
+        overflow-y: auto
     &.maximized
-        height: 100%
+        height: calc(100vh - var(--header-height))
+        .console-body
+            max-height: unset
     &.minimized
-        transform: translateY(calc(100% - var(--header-height)))
+        transform: translateY(calc(100% - var(--console-header-height)))
 
 .builder-chat
     position: fixed
-    right: 0
+    right: 1rem
     bottom: 0
     width: var(--sidebar-width)
-    z-index: 1020
+    z-index: 15
     box-shadow: 0 -4px 12px rgba(black, .1)
     border-top-left-radius: .5rem
     border-top-right-radius: .5rem
+    transition: all .2s ease-in-out
     &-header
         display: flex
         justify-content: space-between
@@ -83,6 +109,8 @@
         padding: .5rem 1rem
         border-top-left-radius: .5rem
         border-top-right-radius: .5rem
+    &-expand-icon
+        display: none
     &-body
         min-height: 50vh
         max-height: 50vh
@@ -120,7 +148,11 @@
         &:focus
             box-shadow: none
     &.minimized
-        transform: translateY(calc( 100% - 44px ))
+        transform: translateY(calc( 100% - 42px ))
+        .builder-chat-expand-icon
+            display: block
+        .builder-chat-close-icon
+            display: none
 
 .builder-nice-scrollbar
     &::-webkit-scrollbar
