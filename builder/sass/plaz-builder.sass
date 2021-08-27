@@ -9,7 +9,7 @@
     display: flex
     flex-direction: column
     height: 100vh
-    overflow-y: hidden
+    overflow: hidden
 
 .builder
     &-header
@@ -25,25 +25,23 @@
         background-image: radial-gradient(#d1d1dd 1px, #fcfcfe 1px);
         background-size: 20px 20px;
         margin: 0 0 0 var(--sidebar-width)
-        overflow: hidden
+        overflow: auto
         &-sidebar
+            position: fixed
+            top: var(--header-height)
+            bottom: 0
             display: flex
             flex-direction: column
-            bottom: 0
             background-color: #fff
             z-index: 20
             &--left
-                position: fixed
-                top: var(--header-height)
                 left: 0
                 width: var(--sidebar-width)
                 box-shadow: 2px 0 4px rgba(black, .05)
             &--right
-                position: absolute
-                top: 0
                 right: 0
                 width: 50vw
-                box-shadow: -4px 0 16px rgba(black, .05)
+                box-shadow: -4px 0 1.5rem rgba(black, .08)
                 transform: translateX(30%)
                 visibility: hidden
                 opacity: 0
@@ -52,7 +50,7 @@
                     transform: translateX(0)
                     opacity: 1
                     visibility: visible
-                    display: block
+                    display: flex
 
 .console
     --console-header-height: 42px
@@ -216,3 +214,65 @@
 
 ul.builder-tree > li:first-child::before 
     display: none
+
+.builder-elem
+    position: absolute
+    display: flex
+    flex-direction: row
+    align-items: stretch
+    width: 300px
+    background-color: #fff
+    box-shadow: 0 2px 6px rgba(black, .1)
+    border-radius: .5rem
+    min-height: 4rem
+    cursor: pointer
+    transition: transform .2s ease
+    &:hover
+        transform: scale(.95)
+    &:focus, &.focus
+        outline: none
+    &.dragging
+        cursor: grabbing !important
+        opacity: .35
+        box-shadow: 0 .5rem 1rem rgba(black, .2)
+    &-indicator
+        flex: 0 0 3rem
+        display: flex
+        align-items: center
+        justify-content: center
+        color: #fff
+        background-color: var(--light)
+        padding: .5rem
+        &:first-child
+            border-top-left-radius: .5rem
+            border-bottom-left-radius: .5rem
+        &:last-child
+            border-top-right-radius: .5rem
+            border-bottom-right-radius: .5rem
+    &-content
+        flex: 1 1 0
+        display: flex
+        flex-direction: column
+        background-color: #fff
+        padding: .5rem 1rem
+        &:last-child
+            border-top-right-radius: .5rem
+            border-bottom-right-radius: .5rem
+
+.builder-elem-small
+    display: flex
+    align-items: center
+    padding: .5rem
+    border-radius: .25rem
+    border: 1px solid rgba(72, 94, 144, 0.16)
+    cursor: grab
+    transition: transform .1s ease
+    &:not(:last-child)
+        margin-bottom: 0.5rem
+    &:hover
+        background-color: rgba(black, .02)
+    &.dragging, &:active
+        cursor: grabbing
+        transform: scale(.95)
+        opacity: .5
+        box-shadow: 0 .25rem .5rem rgba(black, .08)

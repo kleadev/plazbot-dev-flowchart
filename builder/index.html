@@ -31,74 +31,509 @@
         </nav>
     </header>
 
-    <main class="builder-content">
-
-        <!-- left sidebar -->
-        <aside class="builder-content-sidebar builder-content-sidebar--left">
-            <ul class="nav nav-line nav-justified flex-shrink-0 bg-light">
-                <li class="nav-item mx-0">
-                    <a class="nav-link px-3 active" href="#">Eventos</a>
-                </li>
-                <li class="nav-item mx-0">
-                    <a class="nav-link px-3" href="#">Lista</a>
-                </li>
-            </ul>
-            <div class="builder-nice-scrollbar flex-grow-1 overflow-auto p-3">
-                <ul class="builder-tree pl-4">
-                    <li>
-                        <div class="builder-tree-item">Greeting</div>
-                        <div class="builder-tree-item">Lorem, ipsum dolor.</div>
-                        <ul>
-                            <li>
-                                <div class="builder-tree-item">Presenting compliant</div>
-                                <ul>
-                                    <li>
-                                        <div class="builder-tree-item">Further open question</div>
-                                        <div class="builder-tree-item">Pain onset</div>
-                                        <ul>
-                                            <li>
-                                                <div class="builder-tree-item">hello world</div>
-                                                <div class="builder-tree-item">hello world</div>
-                                            </li>
-                                        </ul>
-                                        <div class="builder-tree-item">Pain radiation</div>
-                                        <ul>
-                                            <li>
-                                                <div class="builder-tree-item">Pain associations</div>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <div class="builder-tree-item">hello world</div>
-                        <div class="builder-tree-item active">hello world</div>
-                    </li>
-                </ul>
+    <!-- main content (drop zone)-->
+    <main class="builder-content builder-nice-scrollbar">
+        <div class="builder-elem" role="button" tabindex="0" draggable="true" style="top: 100px; left: 100px;"
+            onclick="document.getElementById('sidebar-right').classList.add('--show')">
+            <div class="builder-elem-indicator bg-danger">
+                <i data-feather="x"></i>
             </div>
-        </aside>
-
-        <!-- right sidebar -->
-        <aside id="sidebar-right" class="builder-content-sidebar builder-content-sidebar--right">
-            <div class="text-right pt-2 pr-2 mb-n4">
-                <button type="button" onclick="this.parentElement.parentElement.classList.remove('--show')" class="btn btn-white btn-xs px-2">
-                    <i data-feather="x"></i>
-                </button>
+            <div class="builder-elem-content">
+                <div class="text-danger">/* comment */</div>
+                <div>Lorem ipsum dolor sit amet consectetur.</div>
             </div>
-            <div class="p-3">
-                right sidebar
+        </div>
+        <div class="builder-elem" role="button" tabindex="0" draggable="true" style="top: 200px; left: 400px;"
+            onclick="document.getElementById('sidebar-right').classList.add('--show')">
+            <div class="builder-elem-indicator bg-warning">
+                <i data-feather="at-sign"></i>
             </div>
-        </aside>
-
-        <!-- main content (drop zone)-->
-        <section class="h-100 p-3">
-            <button onclick="document.getElementById('sidebar-right').classList.toggle('--show')" type="button" class="btn btn-white">toggle</button>
-        </section>
-
+            <div class="builder-elem-content">
+                <div class="text-warning">/* element */</div>
+                <div>Lorem ipsum dolor sit amet consectetur.</div>
+            </div>
+        </div>
+        <div class="builder-elem" role="button" tabindex="0" draggable="true" style="top: 10%; left: 600px;"
+            onclick="document.getElementById('sidebar-right').classList.add('--show')">
+            <div class="builder-elem-indicator bg-info">
+                <i data-feather="code"></i>
+            </div>
+            <div class="builder-elem-content">
+                <div class="text-info">/* comment */</div>
+                <div>Lorem ipsum dolor sit amet consectetur.</div>
+            </div>
+            <div class="builder-elem-indicator bg-transparent text-muted">
+                <i data-feather="award"></i>
+            </div>
+        </div>
     </main>
-    
+
+    <!-- left sidebar -->
+    <aside class="builder-content-sidebar builder-content-sidebar--left">
+        <ul class="nav nav-line nav-justified flex-shrink-0 bg-light" role="tablist">
+            <li class="nav-item mx-0" role="presentation">
+                <a class="nav-link px-3 active" id="events-tab" data-toggle="tab" href="#events" role="tab" aria-controls="events" aria-selected="true">Eventos</a>
+            </li>
+            <li class="nav-item mx-0" role="presentation">
+                <a class="nav-link px-3" id="listtree-tab" data-toggle="tab" href="#listtree" role="tab" aria-controls="listtree" aria-selected="false">Lista</a>
+            </li>
+        </ul>
+        <div class="builder-nice-scrollbar flex-grow-1 overflow-auto p-3">
+            <div class="tab-content">
+                <div class="tab-pane show active" id="events" role="tabpanel" aria-labelledby="events-tab">
+                    <ul class="list-unstyled">
+                        <li class="builder-elem-small" role="button" tabindex="0" draggable="true">
+                            <div class="flex-shrink-0 mr-2">
+                                <i data-feather="align-justify" class="text-info"></i>
+                            </div>
+                            <div class="media-body">
+                                Conversación
+                            </div>
+                        </li>
+                        <li class="builder-elem-small" role="button" tabindex="0" draggable="true">
+                            <div class="flex-shrink-0 mr-2">
+                                <i data-feather="list" class="text-success"></i>
+                            </div>
+                            <div class="media-body">
+                                Contexto
+                            </div>
+                        </li>
+                        <li class="builder-elem-small" role="button" tabindex="0" draggable="true">
+                            <div class="flex-shrink-0 mr-2">
+                                <i data-feather="sliders" class="text-danger"></i>
+                            </div>
+                            <div class="media-body">
+                                Slider
+                            </div>
+                        </li>
+                        <li class="builder-elem-small" role="button" tabindex="0" draggable="true">
+                            <div class="flex-shrink-0 mr-2">
+                                <i data-feather="smartphone" class="text-primary"></i>
+                            </div>
+                            <div class="media-body">
+                                Solicitud contacto
+                            </div>
+                        </li>
+                        <li class="builder-elem-small" role="button" tabindex="0" draggable="true">
+                            <div class="flex-shrink-0 mr-2">
+                                <i data-feather="image" class="text-warning"></i>
+                            </div>
+                            <div class="media-body">
+                                Imagen
+                            </div>
+                        </li>
+                        <li class="builder-elem-small" role="button" tabindex="0" draggable="true">
+                            <div class="flex-shrink-0 mr-2">
+                                <i data-feather="link-2" class="text-info"></i>
+                            </div>
+                            <div class="media-body">
+                                Enlaces
+                            </div>
+                        </li>
+                        <li class="builder-elem-small" role="button" tabindex="0" draggable="true">
+                            <div class="flex-shrink-0 mr-2">
+                                <i data-feather="book-open" class="text-success"></i>
+                            </div>
+                            <div class="media-body">
+                                Capacitación [...???]
+                            </div>
+                        </li>
+                        <li class="builder-elem-small" role="button" tabindex="0" draggable="true">
+                            <div class="flex-shrink-0 mr-2">
+                                <i data-feather="corner-down-right" class="text-danger"></i>
+                            </div>
+                            <div class="media-body">
+                                Traspaso
+                            </div>
+                        </li>
+                        <li class="builder-elem-small" role="button" tabindex="0" draggable="true">
+                            <div class="flex-shrink-0 mr-2">
+                                <i data-feather="mail" class="text-primary"></i>
+                            </div>
+                            <div class="media-body">
+                                Correo
+                            </div>
+                        </li>
+                        <li class="builder-elem-small" role="button" tabindex="0" draggable="true">
+                            <div class="flex-shrink-0 mr-2">
+                                <i data-feather="user" class="text-warning"></i>
+                            </div>
+                            <div class="media-body">
+                                Asignación agentes
+                            </div>
+                        </li>
+                        <li class="builder-elem-small" role="button" tabindex="0" draggable="true">
+                            <div class="flex-shrink-0 mr-2">
+                                <i data-feather="git-commit" class="text-info"></i>
+                            </div>
+                            <div class="media-body">
+                                Webhook
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tab-pane" id="listtree" role="tabpanel" aria-labelledby="listtree-tab">
+                    <h6 class="font-weight-bold mb-3 tx-14">Conversation list view:</h6>
+                    <ul class="builder-tree pl-4">
+                        <li>
+                            <div class="builder-tree-item">Greeting</div>
+                            <div class="builder-tree-item">Lorem, ipsum dolor.</div>
+                            <ul>
+                                <li>
+                                    <div class="builder-tree-item">Presenting compliant</div>
+                                    <ul>
+                                        <li>
+                                            <div class="builder-tree-item">Further open question</div>
+                                            <div class="builder-tree-item">Pain onset</div>
+                                            <ul>
+                                                <li>
+                                                    <div class="builder-tree-item">hello world</div>
+                                                    <div class="builder-tree-item">hello world</div>
+                                                </li>
+                                            </ul>
+                                            <div class="builder-tree-item">Pain radiation</div>
+                                            <ul>
+                                                <li>
+                                                    <div class="builder-tree-item">Pain associations</div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="builder-tree-item">hello world</div>
+                            <div class="builder-tree-item active">hello world</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- right sidebar -->
+    <aside id="sidebar-right" class="builder-content-sidebar builder-content-sidebar--right">
+        <div class="d-flex justify-content-between align-items-center bg-light px-3 py-2">
+            <div class="d-flex align-items-center">
+                <h6 class="font-weight-bold text-uppercase mb-0">Intent_aburrido</h6>
+                <div class="dropdown">
+                    <button class="btn btn-xs px-2" data-toggle="dropdown"><i data-feather="settings"></i></button>
+                    <div class="dropdown-menu">
+                        <a href="#!" class="dropdown-item">Option one</a>
+                        <a href="#!" class="dropdown-item">Option one</a>
+                        <a href="#!" class="dropdown-item">Option one</a>
+                    </div>
+                </div>
+            </div>
+            <button type="button" onclick="this.parentElement.parentElement.classList.remove('--show')" class="btn btn-white btn-xs px-2">
+                <i data-feather="x"></i>
+            </button>
+        </div>
+        <ul class="nav nav-line" id="myTab" role="tablist">
+            <li class="nav-item ml-0" role="presentation">
+                <a class="nav-link px-3 active" id="phrases-tab" data-toggle="tab" href="#phrases" role="tab" aria-controls="phrases" aria-selected="true">Frases</a>
+            </li>
+            <li class="nav-item ml-0" role="presentation">
+                <a class="nav-link px-3" id="answers-tab" data-toggle="tab" href="#answers" role="tab" aria-controls="answers" aria-selected="false">Respuestas</a>
+            </li>
+            <li class="nav-item ml-0" role="presentation">
+                <a class="nav-link px-3" id="actions-tab" data-toggle="tab" href="#actions" role="tab" aria-controls="actions" aria-selected="false">Acciones</a>
+            </li>
+        </ul>
+        <div class="flex-grow-1 overflow-auto">
+            <div class="tab-content">
+                <div class="tab-pane show active" id="phrases" role="tabpanel" aria-labelledby="phrases-tab">
+                    <div class="p-4">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam unde dicta distinctio officia, magni amet est nemo illo quos mollitia vitae doloremque maxime culpa explicabo!</p>
+                    </div>
+                </div>
+
+                <div class="tab-pane" id="answers" role="tabpanel" aria-labelledby="answers-tab">
+                    <div class="p-4">
+                        <div class="bg-light rounded p-3 mb-3">
+                            <h6 class="font-weight-bold mb-3">Respuestas rápidas de la conversación</h6>
+
+                            <div class="form-group row">
+                                <div class="col-lg-3 col-form-label">Frase a enviar</div>
+                                <div class="col-lg-9">
+                                    <div class="input-group input-group-sm">
+                                        <input type="text" class="form-control" placeholder="Descripción de frase a enviar">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-primary btn-xs">Guardar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-lg-3 col-form-label">Frase a mostrar</div>
+                                <div class="col-lg-9">
+                                    <div class="input-group input-group-sm">
+                                        <input type="text" class="form-control" placeholder="Descripción de frase a mostrar">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-primary btn-xs">Guardar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <div class="mb-3">Enunciado para solicitar respuesta <i data-feather="alert-circle" class="wd-15"></i></div>
+                            <textarea rows="4" class="form-control" placeholder="Por favor ingrese una de las siguientes opciones"></textarea>
+                        </div>
+
+                        <div class="bg-light rounded p-3 mb-3">
+                            <h6 class="font-weight-bold mb-3">Respuesta enriquecida - Solicitud Contacto Formulario</h6>
+
+                            <div class="mb-4">
+                                <div class="custom-control custom-switch mb-2">
+                                    <input type="checkbox" class="custom-control-input" id="check-1" checked>
+                                    <label class="custom-control-label" for="check-1">Mostrar campo Teléfono en Formulario</label>
+                                </div>
+                                <div class="custom-control custom-switch mb-2">
+                                    <input type="checkbox" class="custom-control-input" id="check-2">
+                                    <label class="custom-control-label" for="check-2">Enviar información por webhook</label>
+                                </div>
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" id="check-3">
+                                    <label class="custom-control-label" for="check-3">Suscribir contacto a Mailchimp</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-lg-4 col-form-label">Campañas de Mailchimp</div>
+                                <div class="col-lg-8">
+                                    <select class="custom-select custom-select-sm">
+                                        <option value="">Seleccionar opción</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="textarea-s8df66">Mensaje respuesta del Formulario</label>
+                                <textarea id="textarea-s8df66" rows="3" class="form-control" placeholder="Ingrese el mensaje de respuesta"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="bg-light rounded p-3 mb-3">
+                            <h6 class="font-weight-bold mb-3">Respuesta enriquecida - Captación de Clientes Formulario</h6>
+
+                            <div class="form-group">
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" id="check-hdf86f">
+                                    <label class="custom-control-label" for="check-hdf86f">Guardar contacto como cliente</label>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="textarea-8dgdf6">Mensaje para registro</label>
+                                        <textarea id="textarea-8dgdf6" rows="2" class="form-control" placeholder="Ingrese mensaje para registro por formulario"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="textarea-j8r7g5s">Mensaje agradecimiento de Formulario</label>
+                                        <textarea id="textarea-j8r7g5s" rows="2" class="form-control" placeholder="Ingrese mensaje de agradecimiento"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="input-hdff6sd">Título botón de Registro</label>
+                                        <input id="input-hdff6sd" type="text" class="form-control" placeholder="Título de botón">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="input-h9df86">Tiempo de espera (minutos) <i data-feather="alert-circle" class="wd-15 ml-2"></i></label>
+                                        <input id="input-h9df86" type="text" class="form-control" placeholder="Título de botón">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-light rounded p-3 mb-3">
+                            <h6 class="font-weight-bold mb-3">Respuesta enriquecida - Traspaso canales</h6>
+
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="select-dfgds6f">Canal de cambio</label>
+                                        <select id="select-dfgds6f" class="custom-select">
+                                            <option value="">Opcion</option>
+                                            <option value="">Opcion</option>
+                                            <option value="">Opcion</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="select-g2dh3jf">Asignación de agente</label>
+                                        <select id="select-g2dh3jf" class="custom-select">
+                                            <option value="">Opcion</option>
+                                            <option value="">Opcion</option>
+                                            <option value="">Opcion</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="textarea-hd8fg75">Mensaje inicial de canal destino</label>
+                                <textarea id="textarea-hd8fg75" rows="3" class="form-control" placeholder="Ingrese el mensaje de respuesta"></textarea>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane" id="actions" role="tabpanel" aria-labelledby="actions-tab">
+                    <div class="p-4">
+                        <div class="bg-light rounded px-3 py-2">
+                            <div class="form-group row mb-0">
+                                <div class="col-lg-3 col-form-label">Tipo</div>
+                                <div class="col-lg-9">
+                                    <div class="input-group input-group-sm">
+                                        <select class="custom-select">
+                                            <option value="">Condición uno</option>
+                                            <option value="">Condición dos</option>
+                                            <option value="">Condición tres</option>
+                                        </select>
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary btn-xs">Agregar condición</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-top pt-4 mt-4">
+                            <div class="form-group row">
+                                <div class="col-lg-3 col-form-label"><b>Condición 1</b></div>
+                                <div class="col-lg-9">
+                                    <div class="btn-group btn-group-sm">
+                                        <button class="btn btn-white px-2">
+                                            <i data-feather="plus"></i>
+                                        </button>
+                                        <button class="btn btn-white px-2">
+                                            <i data-feather="minus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="col-12 mt-3">
+                                    <div class="input-group input-group-sm">
+                                        <select class="custom-select">
+                                            <option value="">Opcion 1</option>
+                                            <option value="">Opcion 2</option>
+                                            <option value="">Opcion 3</option>
+                                        </select>
+                                        <select class="custom-select">
+                                            <option value="">Opcion 1</option>
+                                            <option value="">Opcion 2</option>
+                                            <option value="">Opcion 3</option>
+                                        </select>
+                                        <input type="text" class="form-control">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-danger">
+                                                <i data-feather="trash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="my-2">
+                                        <a href="javascript:void(0)">and</a> / <a href="javascript:void(0)">or</a>
+                                    </div>
+                                    <div class="input-group input-group-sm">
+                                        <select class="custom-select">
+                                            <option value="">Opcion 1</option>
+                                            <option value="">Opcion 2</option>
+                                            <option value="">Opcion 3</option>
+                                        </select>
+                                        <select class="custom-select">
+                                            <option value="">Opcion 1</option>
+                                            <option value="">Opcion 2</option>
+                                            <option value="">Opcion 3</option>
+                                        </select>
+                                        <input type="text" class="form-control">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-danger">
+                                                <i data-feather="trash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+        
+                                    <div class="mt-3">
+                                        <textarea rows="3" class="form-control" placeholder="Escriba..."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-top pt-4 mt-4">
+                            <div class="form-group row">
+                                <div class="col-lg-3 col-form-label"><b>Condición 2</b></div>
+                                <div class="col-lg-9">
+                                    <div class="btn-group btn-group-sm">
+                                        <button class="btn btn-white px-2">
+                                            <i data-feather="plus"></i>
+                                        </button>
+                                        <button class="btn btn-white px-2">
+                                            <i data-feather="minus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="col-12 mt-3">
+                                    <div class="input-group input-group-sm">
+                                        <select class="custom-select">
+                                            <option value="">Opcion 1</option>
+                                            <option value="">Opcion 2</option>
+                                            <option value="">Opcion 3</option>
+                                        </select>
+                                        <select class="custom-select">
+                                            <option value="">Opcion 1</option>
+                                            <option value="">Opcion 2</option>
+                                            <option value="">Opcion 3</option>
+                                        </select>
+                                        <input type="text" class="form-control">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-danger">
+                                                <i data-feather="trash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="my-2">
+                                        <a href="javascript:void(0)">and</a> / <a href="javascript:void(0)">or</a>
+                                    </div>
+                                    <div class="input-group input-group-sm">
+                                        <select class="custom-select">
+                                            <option value="">Opcion 1</option>
+                                            <option value="">Opcion 2</option>
+                                            <option value="">Opcion 3</option>
+                                        </select>
+                                        <select class="custom-select">
+                                            <option value="">Opcion 1</option>
+                                            <option value="">Opcion 2</option>
+                                            <option value="">Opcion 3</option>
+                                        </select>
+                                        <input type="text" class="form-control">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-danger">
+                                                <i data-feather="trash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+        
+                                    <div class="mt-3">
+                                        <textarea rows="3" class="form-control" placeholder="Escriba..."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </aside>
+
     <!-- console -->
     <section id="console" class="console">
         <header class="console-header border-bottom">
@@ -179,10 +614,14 @@
         </footer>
     </section>
 
+    <script src="js/jquery-3.5.1.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
     <script> feather.replace() </script>
 
     <script>
-        // console
+        // CONSOLE
         let console_minimize_toggler    = document.getElementById('console_minimize'),
             console_maximize_toggler    = document.getElementById('console_maximize'),
             builder_console             = document.getElementById('console');
@@ -199,6 +638,29 @@
             }
             builder_console.classList.toggle('maximized');
         })
-    </script>
+
+        // DRAGGING ELEMENTS
+        let elems = document.querySelectorAll('.builder-elem');
+
+        elems.forEach((el) => {
+            el.addEventListener('dragstart', () => {
+                el.classList.add('dragging');
+            })
+            el.addEventListener('dragend', () => {
+                el.classList.remove('dragging');
+            })
+        })
+
+        let sidebar_elems = document.querySelectorAll('.builder-elem-small');
+
+        sidebar_elems.forEach((el) => {
+            el.addEventListener('dragstart', () => {
+                el.classList.add('dragging');
+            })
+            el.addEventListener('dragend', () => {
+                el.classList.remove('dragging');
+            })
+        })
+        </script>
 </body>
 </html>
