@@ -63,7 +63,8 @@
     flex-direction: column
     min-height: 290px
     height: 30%
-    background-color: #fff
+    color: #fff
+    background-color: #141c2b
     box-shadow: 0 -2px 4px rgba(black, .05)
     z-index: 10
     transition: all .2s ease-in-out
@@ -72,8 +73,16 @@
         justify-content: space-between
         align-items: center
         height: var(--console-header-height)
-        background-color: var(--light)
+        color: var(--light)
+        background-color: #1c273c
         padding: .5rem 1rem
+        .btn-light
+            background-color: transparent
+            &:hover
+                color: #fff
+            &:active
+                background-color: #141c2b !important
+                color: #fff !important
     &-body
         flex-grow: 1
         max-height: 250px
@@ -89,14 +98,15 @@
         transform: translateY(calc(100% - var(--console-header-height)))
 
 .builder-chat
+    --chat-border-radius: .75rem
+
     position: fixed
-    right: 1rem
-    bottom: 0
-    width: var(--sidebar-width)
+    right: 5%
+    bottom: 10%
+    width: 360px
     z-index: 15
-    box-shadow: 0 -4px 12px rgba(black, .1)
-    border-top-left-radius: .5rem
-    border-top-right-radius: .5rem
+    box-shadow: 0 6px 30px rgba(black, .15)
+    border-radius: var(--chat-border-radius)
     transition: all .2s ease-in-out
     &-header
         display: flex
@@ -105,13 +115,11 @@
         background-color: var(--primary)
         color: #fff
         padding: .5rem 1rem
-        border-top-left-radius: .5rem
-        border-top-right-radius: .5rem
-    &-expand-icon
-        display: none
+        border-top-left-radius: var(--chat-border-radius)
+        border-top-right-radius: var(--chat-border-radius)
     &-body
-        min-height: 50vh
-        max-height: 50vh
+        min-height: 60vh
+        max-height: 60vh
         background-color: #fff
         overflow-x: hidden
         overflow-y: auto
@@ -127,7 +135,7 @@
             font-weight: 400
             border-radius: .875rem
         &:not(:last-child)
-            margin-bottom: .5rem
+            margin-bottom: 1rem
         &.sent
             justify-content: flex-end
             .builder-chat-msg-content
@@ -140,6 +148,13 @@
     &-footer
         display: flex
         align-items: stretch
+        border-bottom-left-radius: var(--chat-border-radius)
+        border-bottom-right-radius: var(--chat-border-radius)
+        background-color: #fff
+        .form-control
+            background: none
+        .builder-chat-btn_send
+            border-bottom-right-radius: var(--chat-border-radius) !important
     &-input
         line-height: 1.25
         resize: none
@@ -149,8 +164,6 @@
         transform: translateY(calc( 100% - 42px ))
         .builder-chat-expand-icon
             display: block
-        .builder-chat-close-icon
-            display: none
 
 .builder-nice-scrollbar
     &::-webkit-scrollbar
@@ -163,6 +176,15 @@
         background: lighten(darkgray, 20%)
         &:hover
             background: darkgray
+    &--dark
+        &::-webkit-scrollbar-track
+            background: rgba(white, .1)
+            &:hover
+                background: rgba(white, .15)
+        &::-webkit-scrollbar-thumb
+            background: rgba(white, .15)
+            &:hover
+                background: rgba(white, .2)
 
 .builder-tree
     padding-left: 0
@@ -276,3 +298,28 @@ ul.builder-tree > li:first-child::before
         transform: scale(.95)
         opacity: .5
         box-shadow: 0 .25rem .5rem rgba(black, .08)
+
+.input-trash-gs5df
+    position: relative
+    .btn
+        position: absolute
+        top: 0
+        right: 0
+        bottom: 0
+        z-index: 10
+        &:focus, &:hover
+            opacity: 1 !important
+    .form-control
+        ~ .btn
+            opacity: 0
+        &:focus ~ .btn
+            opacity: 1
+
+.builder-btn-rounded
+    display: inline-flex
+    justify-content: center
+    align-items: center
+    padding: .25rem
+    width: 32px
+    height: 32px
+    border-radius: 100%

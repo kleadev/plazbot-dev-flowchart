@@ -99,7 +99,8 @@
           flex-direction: column;
   min-height: 290px;
   height: 30%;
-  background-color: #fff;
+  color: #fff;
+  background-color: #141c2b;
   -webkit-box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
           box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
   z-index: 10;
@@ -118,8 +119,22 @@
       -ms-flex-align: center;
           align-items: center;
   height: var(--console-header-height);
-  background-color: var(--light);
+  color: var(--light);
+  background-color: #1c273c;
   padding: .5rem 1rem;
+}
+
+.console-header .btn-light {
+  background-color: transparent;
+}
+
+.console-header .btn-light:hover {
+  color: #fff;
+}
+
+.console-header .btn-light:active {
+  background-color: #141c2b !important;
+  color: #fff !important;
 }
 
 .console-body {
@@ -147,15 +162,15 @@
 }
 
 .builder-chat {
+  --chat-border-radius: .75rem;
   position: fixed;
-  right: 1rem;
-  bottom: 0;
-  width: var(--sidebar-width);
+  right: 5%;
+  bottom: 10%;
+  width: 360px;
   z-index: 15;
-  -webkit-box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
-          box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
-  border-top-left-radius: .5rem;
-  border-top-right-radius: .5rem;
+  -webkit-box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15);
+  border-radius: var(--chat-border-radius);
   -webkit-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out;
 }
@@ -173,17 +188,13 @@
   background-color: var(--primary);
   color: #fff;
   padding: .5rem 1rem;
-  border-top-left-radius: .5rem;
-  border-top-right-radius: .5rem;
-}
-
-.builder-chat-expand-icon {
-  display: none;
+  border-top-left-radius: var(--chat-border-radius);
+  border-top-right-radius: var(--chat-border-radius);
 }
 
 .builder-chat-body {
-  min-height: 50vh;
-  max-height: 50vh;
+  min-height: 60vh;
+  max-height: 60vh;
   background-color: #fff;
   overflow-x: hidden;
   overflow-y: auto;
@@ -207,7 +218,7 @@
 }
 
 .builder-chat-msg:not(:last-child) {
-  margin-bottom: .5rem;
+  margin-bottom: 1rem;
 }
 
 .builder-chat-msg.sent {
@@ -238,6 +249,17 @@
   -webkit-box-align: stretch;
       -ms-flex-align: stretch;
           align-items: stretch;
+  border-bottom-left-radius: var(--chat-border-radius);
+  border-bottom-right-radius: var(--chat-border-radius);
+  background-color: #fff;
+}
+
+.builder-chat-footer .form-control {
+  background: none;
+}
+
+.builder-chat-footer .builder-chat-btn_send {
+  border-bottom-right-radius: var(--chat-border-radius) !important;
 }
 
 .builder-chat-input {
@@ -259,10 +281,6 @@
   display: block;
 }
 
-.builder-chat.minimized .builder-chat-close-icon {
-  display: none;
-}
-
 .builder-nice-scrollbar::-webkit-scrollbar {
   width: 3px;
 }
@@ -281,6 +299,22 @@
 
 .builder-nice-scrollbar::-webkit-scrollbar-thumb:hover {
   background: darkgray;
+}
+
+.builder-nice-scrollbar--dark::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.builder-nice-scrollbar--dark::-webkit-scrollbar-track:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.builder-nice-scrollbar--dark::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.builder-nice-scrollbar--dark::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .builder-tree {
@@ -478,5 +512,45 @@ ul.builder-tree > li:first-child::before {
   opacity: .5;
   -webkit-box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.08);
           box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.08);
+}
+
+.input-trash-gs5df {
+  position: relative;
+}
+
+.input-trash-gs5df .btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+}
+
+.input-trash-gs5df .btn:focus, .input-trash-gs5df .btn:hover {
+  opacity: 1 !important;
+}
+
+.input-trash-gs5df .form-control ~ .btn {
+  opacity: 0;
+}
+
+.input-trash-gs5df .form-control:focus ~ .btn {
+  opacity: 1;
+}
+
+.builder-btn-rounded {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: .25rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 100%;
 }
 /*# sourceMappingURL=plaz-builder.css.map */

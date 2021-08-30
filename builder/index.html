@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/plaz-builder.css">
 
     <!-- feather icons -->
-    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://unpkg.com/feather-icons@4.28.0/dist/feather.min.js"></script>
 </head>
 <body class="builder-body">
     <header class="builder-header">
@@ -25,8 +25,9 @@
                 </div>
             </div>
             <div class="flex-grow-1 text-right" style="flex-basis: 0;">
-                <button class="btn btn-white btn-xs text-uppercase"><i data-feather="eye" class="mr-1"></i>Probar</button>
-                <button class="btn btn-primary btn-xs text-uppercase"><i data-feather="send" class="mr-1"></i>Publicar</button>
+                <small class="text-muted tx-13 mr-3">Saving...</small>
+                <button class="btn btn-white btn-xs text-uppercase mr-2"><i data-feather="eye" class="ml-n1 mr-2"></i>Probar</button>
+                <button class="btn btn-primary btn-xs text-uppercase"><i data-feather="send" class="ml-n1 mr-2"></i>Publicar</button>
             </div>
         </nav>
     </header>
@@ -226,7 +227,7 @@
                     </div>
                 </div>
             </div>
-            <button type="button" onclick="this.parentElement.parentElement.classList.remove('--show')" class="btn btn-white btn-xs px-2">
+            <button type="button" onclick="this.parentElement.parentElement.classList.remove('--show')" class="btn btn-white btn-xs border-0 px-2">
                 <i data-feather="x"></i>
             </button>
         </div>
@@ -243,36 +244,237 @@
         </ul>
         <div class="flex-grow-1 overflow-auto">
             <div class="tab-content">
+
                 <div class="tab-pane show active" id="phrases" role="tabpanel" aria-labelledby="phrases-tab">
                     <div class="p-4">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam unde dicta distinctio officia, magni amet est nemo illo quos mollitia vitae doloremque maxime culpa explicabo!</p>
+                        <h6 class="font-weight-bold mb-3">List of questions:</h6>
+
+                        <div class="d-flex align-items-center flex-nowrap mb-3">
+                            <b class="text-muted wd-40 text-center">01</b>
+                            <div class="input-trash-gs5df flex-grow-1">
+                                <input type="text" class="form-control" placeholder="What is your name?">
+                                <button type="button" class="btn btn-link text-danger btn-xs px-2">
+                                    <i data-feather="trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center flex-nowrap mb-3">
+                            <b class="text-muted wd-40 text-center">02</b>
+                            <div class="input-trash-gs5df flex-grow-1">
+                                <input type="text" class="form-control" placeholder="May I have your name please?">
+                                <button type="button" class="btn btn-link text-danger btn-xs px-2">
+                                    <i data-feather="trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center flex-nowrap mb-3">
+                            <b class="text-muted wd-40 text-center">03</b>
+                            <div class="input-trash-gs5df flex-grow-1">
+                                <input type="text" class="form-control" placeholder="Could you tell me your">
+                                <button type="button" class="btn btn-link text-danger btn-xs px-2">
+                                    <i data-feather="trash"></i>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <div class="tab-pane" id="answers" role="tabpanel" aria-labelledby="answers-tab">
                     <div class="p-4">
-                        <div class="bg-light rounded p-3 mb-3">
-                            <h6 class="font-weight-bold mb-3">Respuestas rápidas de la conversación</h6>
-
-                            <div class="form-group row">
-                                <div class="col-lg-3 col-form-label">Frase a enviar</div>
+                        <div class="bg-light rounded px-3 py-2 mb-4">
+                            <div class="form-group row mb-0">
+                                <div class="col-lg-3 col-form-label">Tipo</div>
                                 <div class="col-lg-9">
                                     <div class="input-group input-group-sm">
-                                        <input type="text" class="form-control" placeholder="Descripción de frase a enviar">
+                                        <select class="custom-select">
+                                            <option value="">Condición uno</option>
+                                            <option value="">Condición dos</option>
+                                            <option value="">Condición tres</option>
+                                        </select>
                                         <div class="input-group-append">
-                                            <button class="btn btn-outline-primary btn-xs">Guardar</button>
+                                            <button class="btn btn-primary btn-xs">Agregar condición</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <div class="col-lg-3 col-form-label">Frase a mostrar</div>
-                                <div class="col-lg-9">
-                                    <div class="input-group input-group-sm">
-                                        <input type="text" class="form-control" placeholder="Descripción de frase a mostrar">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-outline-primary btn-xs">Guardar</button>
+                        </div>
+                        <div class="border-top pt-4 pb-4">
+                            <div class="form-group form-row">
+                                <div class="col-lg-auto col-form-label"><b>Condición 1</b></div>
+                                <div class="col-lg">
+                                    <button class="btn btn-white builder-btn-rounded">
+                                        <i data-feather="plus"></i>
+                                    </button>
+                                    <button class="btn btn-white builder-btn-rounded">
+                                        <i data-feather="minus"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-xl-10">
+                                    <div class="form-row">
+                                        <div class="col-md-4">
+                                            <select class="custom-select custom-select-sm">
+                                                <option value="">Opcion 1</option>
+                                                <option value="">Opcion 2</option>
+                                                <option value="">Opcion 3</option>
+                                            </select>
                                         </div>
+                                        <div class="col-md-3">
+                                            <select class="custom-select custom-select-sm">
+                                                <option value="">Opcion 1</option>
+                                                <option value="">Opcion 2</option>
+                                                <option value="">Opcion 3</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                        <div class="col-md-1">
+                                            <button type="button" class="btn btn-outline-danger btn-sm px-2">
+                                                <i data-feather="trash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="my-2">
+                                        <a href="javascript:void(0)" style="font-weight: bold; text-decoration: underline">and</a> / <a href="javascript:void(0)">or</a>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="col-md-4">
+                                            <select class="custom-select custom-select-sm">
+                                                <option value="">Opcion 1</option>
+                                                <option value="">Opcion 2</option>
+                                                <option value="">Opcion 3</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <select class="custom-select custom-select-sm">
+                                                <option value="">Opcion 1</option>
+                                                <option value="">Opcion 2</option>
+                                                <option value="">Opcion 3</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                        <div class="col-md-1">
+                                            <button type="button" class="btn btn-outline-danger btn-sm px-2">
+                                                <i data-feather="trash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="mt-3">
+                                        <textarea rows="3" class="form-control" placeholder="Escriba..."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-top pt-4 pb-4">
+                            <div class="form-group form-row">
+                                <div class="col-lg-auto col-form-label"><b>Condición 1</b></div>
+                                <div class="col-lg">
+                                    <button class="btn btn-white builder-btn-rounded">
+                                        <i data-feather="plus"></i>
+                                    </button>
+                                    <button class="btn btn-white builder-btn-rounded">
+                                        <i data-feather="minus"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-xl-10">
+                                    <div class="form-row">
+                                        <div class="col-md-4">
+                                            <select class="custom-select custom-select-sm">
+                                                <option value="">Opcion 1</option>
+                                                <option value="">Opcion 2</option>
+                                                <option value="">Opcion 3</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <select class="custom-select custom-select-sm">
+                                                <option value="">Opcion 1</option>
+                                                <option value="">Opcion 2</option>
+                                                <option value="">Opcion 3</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                        <div class="col-md-1">
+                                            <button type="button" class="btn btn-outline-danger btn-sm px-2">
+                                                <i data-feather="trash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="my-2">
+                                        <a href="javascript:void(0)" style="font-weight: bold; text-decoration: underline">and</a> / <a href="javascript:void(0)">or</a>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="col-md-4">
+                                            <select class="custom-select custom-select-sm">
+                                                <option value="">Opcion 1</option>
+                                                <option value="">Opcion 2</option>
+                                                <option value="">Opcion 3</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <select class="custom-select custom-select-sm">
+                                                <option value="">Opcion 1</option>
+                                                <option value="">Opcion 2</option>
+                                                <option value="">Opcion 3</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                        <div class="col-md-1">
+                                            <button type="button" class="btn btn-outline-danger btn-sm px-2">
+                                                <i data-feather="trash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="mt-3">
+                                        <textarea rows="3" class="form-control" placeholder="Escriba..."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane" id="actions" role="tabpanel" aria-labelledby="actions-tab">
+                    <div class="p-4">
+                        <div class="mb-3">
+                            <h6 class="font-weight-bold mb-3">Respuestas rápidas de la conversación</h6>
+
+                            <div class="form-group row mb-2">
+                                <div class="col-lg-auto col-form-label" style="min-width: 130px">Frase a enviar</div>
+                                <div class="col-lg">
+                                    <div class="d-flex flex-nowrap">
+                                        <input type="text" class="form-control form-control-sm" placeholder="Descripción de frase a enviar">
+                                        <button class="btn btn-outline-primary btn-sm px-2 ml-2">
+                                            <i data-feather="save"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row mb-2">
+                                <div class="col-lg-auto col-form-label" style="min-width: 130px">Frase a mostrar</div>
+                                <div class="col-lg">
+                                    <div class="d-flex flex-nowrap">
+                                        <input type="text" class="form-control form-control-sm" placeholder="Descripción de frase a mostrar">
+                                        <button class="btn btn-outline-primary btn-sm px-2 ml-2">
+                                            <i data-feather="save"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -283,7 +485,7 @@
                             <textarea rows="4" class="form-control" placeholder="Por favor ingrese una de las siguientes opciones"></textarea>
                         </div>
 
-                        <div class="bg-light rounded p-3 mb-3">
+                        <div class="mb-3">
                             <h6 class="font-weight-bold mb-3">Respuesta enriquecida - Solicitud Contacto Formulario</h6>
 
                             <div class="mb-4">
@@ -316,7 +518,7 @@
                             </div>
                         </div>
 
-                        <div class="bg-light rounded p-3 mb-3">
+                        <div class="mb-3">
                             <h6 class="font-weight-bold mb-3">Respuesta enriquecida - Captación de Clientes Formulario</h6>
 
                             <div class="form-group">
@@ -354,7 +556,7 @@
                             </div>
                         </div>
 
-                        <div class="bg-light rounded p-3 mb-3">
+                        <div class="mb-3">
                             <h6 class="font-weight-bold mb-3">Respuesta enriquecida - Traspaso canales</h6>
 
                             <div class="form-row">
@@ -385,147 +587,75 @@
                             </div>
 
                         </div>
-                    </div>
-                </div>
 
-                <div class="tab-pane" id="actions" role="tabpanel" aria-labelledby="actions-tab">
-                    <div class="p-4">
-                        <div class="bg-light rounded px-3 py-2">
-                            <div class="form-group row mb-0">
-                                <div class="col-lg-3 col-form-label">Tipo</div>
-                                <div class="col-lg-9">
-                                    <div class="input-group input-group-sm">
-                                        <select class="custom-select">
-                                            <option value="">Condición uno</option>
-                                            <option value="">Condición dos</option>
-                                            <option value="">Condición tres</option>
-                                        </select>
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary btn-xs">Agregar condición</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="border-top pt-4 mt-4">
-                            <div class="form-group row">
-                                <div class="col-lg-3 col-form-label"><b>Condición 1</b></div>
-                                <div class="col-lg-9">
-                                    <div class="btn-group btn-group-sm">
-                                        <button class="btn btn-white px-2">
-                                            <i data-feather="plus"></i>
-                                        </button>
-                                        <button class="btn btn-white px-2">
-                                            <i data-feather="minus"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="col-12 mt-3">
-                                    <div class="input-group input-group-sm">
-                                        <select class="custom-select">
-                                            <option value="">Opcion 1</option>
-                                            <option value="">Opcion 2</option>
-                                            <option value="">Opcion 3</option>
-                                        </select>
-                                        <select class="custom-select">
-                                            <option value="">Opcion 1</option>
-                                            <option value="">Opcion 2</option>
-                                            <option value="">Opcion 3</option>
-                                        </select>
-                                        <input type="text" class="form-control">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-outline-danger">
-                                                <i data-feather="trash"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div class="my-2">
-                                        <a href="javascript:void(0)">and</a> / <a href="javascript:void(0)">or</a>
-                                    </div>
-                                    <div class="input-group input-group-sm">
-                                        <select class="custom-select">
-                                            <option value="">Opcion 1</option>
-                                            <option value="">Opcion 2</option>
-                                            <option value="">Opcion 3</option>
-                                        </select>
-                                        <select class="custom-select">
-                                            <option value="">Opcion 1</option>
-                                            <option value="">Opcion 2</option>
-                                            <option value="">Opcion 3</option>
-                                        </select>
-                                        <input type="text" class="form-control">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-outline-danger">
-                                                <i data-feather="trash"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-        
-                                    <div class="mt-3">
-                                        <textarea rows="3" class="form-control" placeholder="Escriba..."></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="border-top pt-4 mt-4">
-                            <div class="form-group row">
-                                <div class="col-lg-3 col-form-label"><b>Condición 2</b></div>
-                                <div class="col-lg-9">
-                                    <div class="btn-group btn-group-sm">
-                                        <button class="btn btn-white px-2">
-                                            <i data-feather="plus"></i>
-                                        </button>
-                                        <button class="btn btn-white px-2">
-                                            <i data-feather="minus"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="col-12 mt-3">
-                                    <div class="input-group input-group-sm">
-                                        <select class="custom-select">
-                                            <option value="">Opcion 1</option>
-                                            <option value="">Opcion 2</option>
-                                            <option value="">Opcion 3</option>
-                                        </select>
-                                        <select class="custom-select">
-                                            <option value="">Opcion 1</option>
-                                            <option value="">Opcion 2</option>
-                                            <option value="">Opcion 3</option>
-                                        </select>
-                                        <input type="text" class="form-control">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-outline-danger">
-                                                <i data-feather="trash"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div class="my-2">
-                                        <a href="javascript:void(0)">and</a> / <a href="javascript:void(0)">or</a>
-                                    </div>
-                                    <div class="input-group input-group-sm">
-                                        <select class="custom-select">
-                                            <option value="">Opcion 1</option>
-                                            <option value="">Opcion 2</option>
-                                            <option value="">Opcion 3</option>
-                                        </select>
-                                        <select class="custom-select">
-                                            <option value="">Opcion 1</option>
-                                            <option value="">Opcion 2</option>
-                                            <option value="">Opcion 3</option>
-                                        </select>
-                                        <input type="text" class="form-control">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-outline-danger">
-                                                <i data-feather="trash"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-        
-                                    <div class="mt-3">
-                                        <textarea rows="3" class="form-control" placeholder="Escriba..."></textarea>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="mb-3">
+                            <table class="table">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th scope="col">Frase a enviar</th>
+                                        <th scope="col">Frase a mostrar</th>
+                                        <th scope="col" class="text-right">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Sí</th>
+                                        <td>No</td>
+                                        <td class="text-right text-nowrap" width="10px">
+                                            <ul class="list-inline mb-0">
+                                                <li class="list-inline-item mr-0">
+                                                    <button type="button" class="btn btn-link btn-sm p-1"><i data-feather="edit"></i></button>
+                                                </li>
+                                                <li class="list-inline-item mr-0">
+                                                    <button type="button" class="btn btn-link btn-sm p-1"><i data-feather="trash"></i></button>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sí</th>
+                                        <td>No</td>
+                                        <td class="text-right text-nowrap" width="10px">
+                                            <ul class="list-inline mb-0">
+                                                <li class="list-inline-item mr-0">
+                                                    <button type="button" class="btn btn-link btn-sm p-1"><i data-feather="edit"></i></button>
+                                                </li>
+                                                <li class="list-inline-item mr-0">
+                                                    <button type="button" class="btn btn-link btn-sm p-1"><i data-feather="trash"></i></button>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sí</th>
+                                        <td>No</td>
+                                        <td class="text-right text-nowrap" width="10px">
+                                            <ul class="list-inline mb-0">
+                                                <li class="list-inline-item mr-0">
+                                                    <button type="button" class="btn btn-link btn-sm p-1"><i data-feather="edit"></i></button>
+                                                </li>
+                                                <li class="list-inline-item mr-0">
+                                                    <button type="button" class="btn btn-link btn-sm p-1"><i data-feather="trash"></i></button>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sí</th>
+                                        <td>No</td>
+                                        <td class="text-right text-nowrap" width="10px">
+                                            <ul class="list-inline mb-0">
+                                                <li class="list-inline-item mr-0">
+                                                    <button type="button" class="btn btn-link btn-sm p-1"><i data-feather="edit"></i></button>
+                                                </li>
+                                                <li class="list-inline-item mr-0">
+                                                    <button type="button" class="btn btn-link btn-sm p-1"><i data-feather="trash"></i></button>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -543,39 +673,36 @@
                 <button id="console_maximize" type="button" class="btn btn-light border-0 px-2 btn-xs"><i data-feather="maximize"></i></button>
             </div>
         </header>
-        <div class="console-body builder-nice-scrollbar">
-            <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet, magnam.</div>
-            <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet, magnam.</div>
-            <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet, magnam.</div>
-            <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet, magnam.</div>
-            <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet, magnam.</div>
-            <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet, magnam.</div>
-            <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet, magnam.</div>
-            <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet, magnam.</div>
-            <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet, magnam.</div>
-            <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet, magnam.</div>
-            <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet, magnam.</div>
-            <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet, magnam.</div>
-            <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet, magnam.</div>
-            <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet, magnam.</div>
+        <div class="console-body builder-nice-scrollbar builder-nice-scrollbar--dark">
+            <div class="text-danger"><i data-feather="alert-circle" class="wd-15 mr-2"></i>11.09.2019. 17:23:46 Error</div>
+            <div class="text-info"><i data-feather="alert-circle" class="wd-15 mr-2"></i>11.09.2019. 17:23:46 Task finished successfully</div>
+            <div class="text-warning"><i data-feather="alert-circle" class="wd-15 mr-2"></i>11.09.2019. 17:23:46 Something wrong</div>
+            <div class="text-success"><i data-feather="check-circle" class="wd-15 mr-2"></i>11.09.2019. 17:23:46 Sequence completed</div>
+            <div class="text-danger"><i data-feather="alert-circle" class="wd-15 mr-2"></i>11.09.2019. 17:23:46 Error</div>
+            <div class="text-info"><i data-feather="alert-circle" class="wd-15 mr-2"></i>11.09.2019. 17:23:46 Task finished successfully</div>
+            <div class="text-warning"><i data-feather="alert-circle" class="wd-15 mr-2"></i>11.09.2019. 17:23:46 Something wrong</div>
+            <div class="text-success"><i data-feather="check-circle" class="wd-15 mr-2"></i>11.09.2019. 17:23:46 Sequence completed</div>
+            <div class="text-danger"><i data-feather="alert-circle" class="wd-15 mr-2"></i>11.09.2019. 17:23:46 Error</div>
+            <div class="text-info"><i data-feather="alert-circle" class="wd-15 mr-2"></i>11.09.2019. 17:23:46 Task finished successfully</div>
+            <div class="text-warning"><i data-feather="alert-circle" class="wd-15 mr-2"></i>11.09.2019. 17:23:46 Something wrong</div>
+            <div class="text-success"><i data-feather="check-circle" class="wd-15 mr-2"></i>11.09.2019. 17:23:46 Sequence completed</div>
         </div>
     </section>
 
     <!-- chat -->
-    <section class="builder-chat minimized">
+    <section class="builder-chat">
         <header class="builder-chat-header">
             <div class="media align-items-center">
                 <div class="avatar avatar-xs mr-2">
                     <img class="rounded-circle" src="" alt="">
                 </div>
                 <div class="media-body">
-                    Prueba
+                    Virtual Patient Test
                 </div>
             </div>
             <div class="builder-chat-header-actions mr-n2">
-                <button onclick="this.parentElement.parentElement.parentElement.classList.toggle('minimized')" type="button" class="btn text-light border-0 btn-xs px-2">
-                    <i class="builder-chat-close-icon" data-feather="x"></i>
-                    <i class="builder-chat-expand-icon" data-feather="maximize-2"></i>
+                <button onclick="this.parentElement.parentElement.parentElement.style.display = 'none'" type="button" class="btn text-light border-0 btn-xs px-2">
+                    <i data-feather="x"></i>
                 </button>
             </div>
         </header>
@@ -586,6 +713,9 @@
             <div class="builder-chat-msg received">
                 <div class="builder-chat-msg-content">Lorem ipsum.</div>
             </div>
+            <div class="builder-chat-msg received">
+                <div class="builder-chat-msg-content">Lorem ipsum.</div>
+            </div>
             <div class="builder-chat-msg sent">
                 <div class="builder-chat-msg-content">Lorem ipsum dolor sit.</div>
             </div>
@@ -594,12 +724,18 @@
             </div>
             <div class="builder-chat-msg received">
                 <div class="builder-chat-msg-content">Lorem ipsum.</div>
+            </div>
+            <div class="builder-chat-msg received">
+                <div class="builder-chat-msg-content">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis sapiente iure aut nihil voluptatibus aperiam.</div>
             </div>
             <div class="builder-chat-msg sent">
                 <div class="builder-chat-msg-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, placeat?</div>
             </div>
             <div class="builder-chat-msg received">
                 <div class="builder-chat-msg-content">Lorem ipsum.</div>
+            </div>
+            <div class="builder-chat-msg received">
+                <div class="builder-chat-msg-content">Lorem ipsum dolor sit amet consectetur.</div>
             </div>
             <div class="builder-chat-msg sent">
                 <div class="builder-chat-msg-content">Ok!</div>
@@ -610,7 +746,7 @@
         </main>
         <footer class="builder-chat-footer">
             <textarea rows="2" class="builder-chat-input builder-nice-scrollbar form-control border-0 rounded-0" placeholder="Escriba..."></textarea>
-            <button class="btn btn-light border-0 rounded-0"><i data-feather="send"></i></button>
+            <button class="btn btn-white builder-chat-btn_send text-primary border-0 rounded-0"><i data-feather="send"></i></button>
         </footer>
     </section>
 
