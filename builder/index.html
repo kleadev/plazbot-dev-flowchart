@@ -26,8 +26,8 @@
             </div>
             <div class="flex-grow-1 text-right" style="flex-basis: 0;">
                 <small class="text-muted tx-13 mr-3">Saving...</small>
-                <button class="btn btn-white btn-xs text-uppercase mr-2"><i data-feather="eye" class="ml-n1 mr-2"></i>Probar</button>
-                <button class="btn btn-primary btn-xs text-uppercase"><i data-feather="send" class="ml-n1 mr-2"></i>Publicar</button>
+                <button type="button" onclick="document.querySelector('.builder-chat').style.display = 'block'" class="btn btn-white btn-xs text-uppercase mr-2"><i data-feather="eye" class="ml-n1 mr-2"></i>Probar</button>
+                <button type="button" class="btn btn-primary btn-xs text-uppercase"><i data-feather="send" class="ml-n1 mr-2"></i>Publicar</button>
             </div>
         </nav>
     </header>
@@ -79,7 +79,7 @@
                 <a class="nav-link px-3" id="listtree-tab" data-toggle="tab" href="#listtree" role="tab" aria-controls="listtree" aria-selected="false">Lista</a>
             </li>
         </ul>
-        <div class="builder-nice-scrollbar flex-grow-1 overflow-auto p-3">
+        <div class="builder-nice-scrollbar builder-nice-scrollbar--lg flex-grow-1 overflow-auto p-3">
             <div class="tab-content">
                 <div class="tab-pane show active" id="events" role="tabpanel" aria-labelledby="events-tab">
                     <ul class="list-unstyled">
@@ -178,6 +178,11 @@
                     <ul class="builder-tree pl-4">
                         <li>
                             <div class="builder-tree-item">Greeting</div>
+                            <div class="builder-tree-item">Lorem ipsum</div>
+                            <div class="builder-tree-item">Dolor sit amet</div>
+                            <div class="builder-tree-item">Hello world</div>
+                            <div class="builder-tree-item">Good job!</div>
+                            <div class="builder-tree-item">Lorem ipsum dolor sit amet consectetur.</div>
                             <div class="builder-tree-item">Lorem, ipsum dolor.</div>
                             <ul>
                                 <li>
@@ -190,6 +195,24 @@
                                                 <li>
                                                     <div class="builder-tree-item">hello world</div>
                                                     <div class="builder-tree-item">hello world</div>
+                                                    <ul>
+                                                        <li>
+                                                            <div class="builder-tree-item">hello world</div>
+                                                            <div class="builder-tree-item">hello world</div>
+                                                            <ul>
+                                                                <li>
+                                                                    <div class="builder-tree-item">hello world</div>
+                                                                    <div class="builder-tree-item">hello world</div>
+                                                                    <ul>
+                                                                        <li>
+                                                                            <div class="builder-tree-item">hello world</div>
+                                                                            <div class="builder-tree-item">hello world</div>
+                                                                        </li>
+                                                                    </ul>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
                                                 </li>
                                             </ul>
                                             <div class="builder-tree-item">Pain radiation</div>
@@ -665,11 +688,13 @@
     </aside>
 
     <!-- console -->
-    <section id="console" class="console">
+    <section id="console" class="console minimized">
         <header class="console-header border-bottom">
-            <div><i data-feather="terminal" class="wd-15 text-muted mr-2"></i>Consola</div>
-            <div class="console-header-actions">
-                <button id="console_minimize" type="button" class="btn btn-light border-0 px-2 btn-xs"><i data-feather="minimize-2"></i></button>
+            <div class="console-header-toggler js-console-minimize" role="button" tabindex="0">
+                <div><i data-feather="terminal" class="wd-15 text-muted mr-2"></i>Consola</div>
+            </div>
+            <div class="console-header-actions flex-shrink-0">
+                <button id="console_minimize" type="button" class="btn btn-light border-0 px-2 btn-xs js-console-minimize"><i data-feather="minimize-2"></i></button>
                 <button id="console_maximize" type="button" class="btn btn-light border-0 px-2 btn-xs"><i data-feather="maximize"></i></button>
             </div>
         </header>
@@ -690,7 +715,7 @@
     </section>
 
     <!-- chat -->
-    <section class="builder-chat">
+    <section class="builder-chat" style="display: none;">
         <header class="builder-chat-header">
             <div class="media align-items-center">
                 <div class="avatar avatar-xs mr-2">
@@ -758,13 +783,18 @@
 
     <script>
         // CONSOLE
-        let console_minimize_toggler    = document.getElementById('console_minimize'),
+        let console_minimize_toggler    = document.querySelectorAll('.js-console-minimize'),
             console_maximize_toggler    = document.getElementById('console_maximize'),
             builder_console             = document.getElementById('console');
 
         // console minimize
-        console_minimize_toggler.addEventListener('click', () => {
-            builder_console.classList.toggle('minimized');
+        console_minimize_toggler.forEach((el) => {
+            el.addEventListener('click', () => {
+                if (builder_console.classList.contains('maximized')) {
+                    builder_console.classList.remove('maximized');
+                }
+                builder_console.classList.toggle('minimized');
+            })
         })
 
         // console maximize
@@ -774,6 +804,7 @@
             }
             builder_console.classList.toggle('maximized');
         })
+
 
         // DRAGGING ELEMENTS
         let elems = document.querySelectorAll('.builder-elem');

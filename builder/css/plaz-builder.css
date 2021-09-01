@@ -121,6 +121,22 @@
   height: var(--console-header-height);
   color: var(--light);
   background-color: #1c273c;
+}
+
+.console-header-toggler {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
+  outline: none;
+  padding: .5rem 1rem;
+}
+
+.console-header-actions {
   padding: .5rem 1rem;
 }
 
@@ -143,7 +159,7 @@
           flex-grow: 1;
   max-height: 250px;
   padding: .5rem 1rem;
-  font-size: .875rem;
+  font-size: .8125rem;
   line-height: 1.75;
   overflow-y: auto;
 }
@@ -164,8 +180,8 @@
 .builder-chat {
   --chat-border-radius: .75rem;
   position: fixed;
-  right: 5%;
-  bottom: 10%;
+  right: 2rem;
+  bottom: 2rem;
   width: 360px;
   z-index: 15;
   -webkit-box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15);
@@ -283,6 +299,7 @@
 
 .builder-nice-scrollbar::-webkit-scrollbar {
   width: 3px;
+  height: 3px;
 }
 
 .builder-nice-scrollbar::-webkit-scrollbar-track {
@@ -317,8 +334,36 @@
   background: rgba(255, 255, 255, 0.2);
 }
 
+.builder-nice-scrollbar--lg::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
 .builder-tree {
   padding-left: 0;
+}
+
+.builder-tree-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: var(--light);
+  padding: .5rem 1rem;
+  min-width: 180px;
+  border-radius: .5rem;
+  font-size: .875rem;
+  line-height: 1.25;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.builder-tree-item:not(:last-child) {
+  margin-bottom: .5rem;
+}
+
+.builder-tree-item.active {
+  border: 1px solid var(--primary);
+  color: var(--primary);
 }
 
 .builder-tree li {
@@ -360,28 +405,7 @@
 .builder-tree ul {
   margin: .5rem 0 .5rem 2rem;
   padding-left: 0;
-}
-
-.builder-tree-item {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  background-color: var(--light);
-  padding: .5rem 1rem;
-  border-radius: .5rem;
-  font-size: .875rem;
-  line-height: 1.25;
-  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
-          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
-}
-
-.builder-tree-item:not(:last-child) {
-  margin-bottom: .5rem;
-}
-
-.builder-tree-item.active {
-  border: 1px solid var(--primary);
-  color: var(--primary);
+  min-width: 180px;
 }
 
 ul.builder-tree > li:first-child::before {
